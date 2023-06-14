@@ -36,12 +36,12 @@ async function getNewMsgs() {
   try {
     const res = await fetch("/poll");
     json = await res.json();
+
+    allChat = json.msg;
+    render();
   } catch (error) {
     console.error("error in poll ", error);
   }
-
-  allChat = json.msg;
-  render();
   // setTimeout(getNewMsgs, INTERVAL);
 }
 
